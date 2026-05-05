@@ -1,0 +1,94 @@
+# depslib dependency file v1.0
+1776400060 source:/home/paulmichaelolsen/VPCC Assignnments/CSC 222/M5 Programming Project/FactoryWorkersProgram/main.cpp
+	<iostream>
+	"Employee.h"
+	"ProductionWorker.h"
+	"ShiftSupervisor.h"
+	"TeamLeader.h"
+
+1776397466 /home/paulmichaelolsen/VPCC Assignnments/CSC 222/M5 Programming Project/FactoryWorkersProgram/Employee.h
+	<string>
+
+1776391213 /home/paulmichaelolsen/VPCC Assignnments/CSC 222/M5 Programming Project/FactoryWorkersProgram/ProductionWorker.h
+	"Employee.h"
+	<string>
+
+1776391608 /home/paulmichaelolsen/VPCC Assignnments/CSC 222/M5 Programming Project/FactoryWorkersProgram/ShiftSupervisor.h
+	"Employee.h"
+	<string>
+
+1776398219 /home/paulmichaelolsen/VPCC Assignnments/CSC 222/M5 Programming Project/FactoryWorkersProgram/TeamLeader.h
+	<string>
+	"ProductionWorker.h"
+
+1776393473 source:/home/paulmichaelolsen/VPCC Assignnments/CSC 222/M5 Programming Project/FactoryWorkersProgram/ShiftSupervisor.cpp
+	"ShiftSupervisor.h"
+	<string>
+	<iostream>
+	<iomanip>
+
+1776399013 source:/home/paulmichaelolsen/VPCC Assignnments/CSC 222/M5 Programming Project/FactoryWorkersProgram/TeamLeader.cpp
+	"TeamLeader.h"
+	"ProductionWorker.h"
+	<string>
+	<iostream>
+	<iomanip>
+
+1776391109 source:/home/paulmichaelolsen/VPCC Assignnments/CSC 222/M5 Programming Project/FactoryWorkersProgram/Employee.cpp
+	"Employee.h"
+	<string>
+	<iostream>
+
+1776392923 source:/home/paulmichaelolsen/VPCC Assignnments/CSC 222/M5 Programming Project/FactoryWorkersProgram/ProductionWorker.cpp
+	"ProductionWorker.h"
+	<iostream>
+	<string>
+	<iomanip>
+
+1776391109 source:/home/paulmichaelolsen/VPCC Assignnments/CSC 222/M6 Programming Project/FactoryWorkersProgram/Employee.cpp
+	"Employee.h"
+	<string>
+	<iostream>
+
+1777954239 /home/paulmichaelolsen/VPCC Assignnments/CSC 222/M6 Programming Project/FactoryWorkersProgram/Employee.h
+	<string>
+	<exception>
+
+1776400878 source:/home/paulmichaelolsen/VPCC Assignnments/CSC 222/M6 Programming Project/FactoryWorkersProgram/main.cpp
+	<iostream>
+	"Employee.h"
+	"ProductionWorker.h"
+	"ShiftSupervisor.h"
+	"TeamLeader.h"
+
+1776391213 /home/paulmichaelolsen/VPCC Assignnments/CSC 222/M6 Programming Project/FactoryWorkersProgram/ProductionWorker.h
+	"Employee.h"
+	<string>
+
+1776391608 /home/paulmichaelolsen/VPCC Assignnments/CSC 222/M6 Programming Project/FactoryWorkersProgram/ShiftSupervisor.h
+	"Employee.h"
+	<string>
+
+1776398219 /home/paulmichaelolsen/VPCC Assignnments/CSC 222/M6 Programming Project/FactoryWorkersProgram/TeamLeader.h
+	<string>
+	"ProductionWorker.h"
+
+1776392923 source:/home/paulmichaelolsen/VPCC Assignnments/CSC 222/M6 Programming Project/FactoryWorkersProgram/ProductionWorker.cpp
+	"ProductionWorker.h"
+	<iostream>
+	<string>
+	<iomanip>
+
+1776393473 source:/home/paulmichaelolsen/VPCC Assignnments/CSC 222/M6 Programming Project/FactoryWorkersProgram/ShiftSupervisor.cpp
+	"ShiftSupervisor.h"
+	<string>
+	<iostream>
+	<iomanip>
+
+1776399013 source:/home/paulmichaelolsen/VPCC Assignnments/CSC 222/M6 Programming Project/FactoryWorkersProgram/TeamLeader.cpp
+	"TeamLeader.h"
+	"ProductionWorker.h"
+	<string>
+	<iostream>
+	<iomanip>
+
