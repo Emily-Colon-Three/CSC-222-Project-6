@@ -37,6 +37,7 @@ public:
 
     void printEmployee() const;
 
+    // An exception to handle when a designated Employee ID number is outside the intended range
     class InvalidEmployeeNumber : public std::exception
     {
     private:
@@ -50,5 +51,7 @@ public:
             return message.c_str();
         }
     };
+
+    void isNumberValid(int num);
 };
 #endif // EMPLOYEE_H
