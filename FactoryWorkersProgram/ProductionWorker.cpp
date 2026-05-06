@@ -27,13 +27,9 @@ std::string ProductionWorker::getShift() const
     {
         return "Night Shift";
     }
-    else
-    {
-        return ""; // Blank string for invalid shift data.
-    }
 }
 
-// Sets the shift of the ProductionWorker object to either 1 or 2, day or night. If the input is not either, an error is printed and no change is made, validating input. Returns nothing.
+// Sets the shift of the ProductionWorker object to either 1 or 2, day or night. If the input is not either, an exception is thrown, InvalidShift.
 void ProductionWorker::setShift(int newShift)
 {
     if (newShift >= DAYSHIFT && newShift <= NIGHTSHIFT) // Only works with actual shift values
@@ -42,7 +38,7 @@ void ProductionWorker::setShift(int newShift)
     }
     else
     {
-        std::cout << "Shift Input Invalid." << std::endl; // Rejects invalid input with error message
+        throw InvalidShift("Shift Value Invalid. Must be either 1 or 2.");
     }
 }
 

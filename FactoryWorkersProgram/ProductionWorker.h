@@ -2,6 +2,7 @@
 #define PRODUCTIONWORKER_H
 #include "Employee.h"
 #include <string>
+#include <exception>
 
 const int DAYSHIFT = 1;
 const int NIGHTSHIFT = 2;
@@ -25,5 +26,20 @@ public:
     void setWage(float newWage);
 
     void printProductionWorker() const;
+
+    // Exception class for exceptions where a given ProductionWorker object's shift is invalid, neither 1 nor 2.
+    class InvalidShift : public std::exception
+    {
+    private:
+        std::string message;
+
+    public:
+        InvalidShift(const std::string& msg) : message(msg) {}
+
+        const char* what() const noexcept override
+        {
+            return message.c_str();
+        }
+    };
 };
 #endif // PRODUCTIONWORKER_H
