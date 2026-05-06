@@ -42,7 +42,7 @@ void ProductionWorker::setShift(int newShift)
     }
 }
 
-// Changes the pay per hour of a ProductionWorker object to the input, returning nothing. Does not change if input is invalid, i.e. negative and less than 0.
+// Changes the pay per hour of a ProductionWorker object to the input, returning nothing. Exception is thrown if the new wage is invalid by way of being negative.
 void ProductionWorker::setWage(float newWage)
 {
     if (newWage >= 0)
@@ -51,7 +51,7 @@ void ProductionWorker::setWage(float newWage)
     }
     else
     {
-        std::cout << "Wage Input Cannot be Negative.\n";
+        throw InvalidPayRate("Pay per Hour Invalid. Must not be negative value.");
     }
 }
 

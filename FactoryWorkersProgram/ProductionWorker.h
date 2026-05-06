@@ -41,5 +41,20 @@ public:
             return message.c_str();
         }
     };
+
+    // Exception class used for cases where the pay rate or wage is invalid, i.e. negative.
+    class InvalidPayRate : public std::exception
+    {
+    private:
+        std::string message;
+
+    public:
+        InvalidPayRate(const std::string& msg) : message(msg) {}
+
+        const char* what() const noexcept override
+        {
+            return message.c_str();
+        }
+    };
 };
 #endif // PRODUCTIONWORKER_H
