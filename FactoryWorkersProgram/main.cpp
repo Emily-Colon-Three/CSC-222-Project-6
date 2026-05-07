@@ -10,18 +10,21 @@ using namespace std;
 
 int main()
 {
-    // Choosing class
+    // Variables for moving through menus and looping until validation is complete
     int choice;
     bool isValid = false;
     bool cont = false;
 
+    // Variables for user input values
     string nameInput;
     int numInput;
     int monthInput;
     int dayInput;
     int yearInput;
     int shiftInput;
+    float hourlyPayInput;
 
+    // Main client loop which allows multiple objects to be created during the same session of runtime.
     do {
         cout << "Which kind of employee would you like to create?\n";
         cout << "1. Employee (Default)\n";
@@ -45,18 +48,19 @@ int main()
                 do {
                     cout << "What Employee Number will they have? (0-9999)\n";
                     cin >> numInput;
+
                     try {
                         userMade.setNumber(numInput);
-                        cont = true;
+                        cont = true; // Will only happen if the number is set without exception
                     } catch (const Employee::InvalidEmployeeNumber& e) {
                         cerr << "Error: " << e.what() << endl;
                     }
                 } while (cont == false);
-                cont = false;
+                cont = false; // Sets continue boolean back to false to be re-used later
 
-                cout << "What month were they hired on?\n";
+                cout << "What month were they hired on? (1-12)\n";
                 cin >> monthInput;
-                cout << "What day were they hired on?\n";
+                cout << "What day were they hired on? (1-31)\n";
                 cin >> dayInput;
                 cout << "What year were they hired on?\n";
                 cin >> yearInput;
@@ -64,6 +68,8 @@ int main()
 
                 // Final Employee object report is printed
                 userMade.printEmployee();
+
+                break;
             }
 
         case 2: // ProductionWorker chosen
@@ -78,18 +84,19 @@ int main()
                 do {
                     cout << "What Employee Number will they have? (0-9999)\n";
                     cin >> numInput;
+
                     try {
                         userMade.setNumber(numInput);
                         cont = true;
-                    } catch (const Employee::InvalidEmployeeNumber& e) {
+                    } catch (const ProductionWorker::InvalidEmployeeNumber& e) {
                         cerr << "Error: " << e.what() << endl;
                     }
                 } while (cont == false);
                 cont = false;
 
-                cout << "What month were they hired on?\n";
+                cout << "What month were they hired on? (1-12)\n";
                 cin >> monthInput;
-                cout << "What day were they hired on?\n";
+                cout << "What day were they hired on? (1-31)\n";
                 cin >> dayInput;
                 cout << "What year were they hired on?\n";
                 cin >> yearInput;
@@ -98,8 +105,34 @@ int main()
                 // Shift input (with validation)
                 do {
                     cout << "Do they work Day shifts (1) or Night shifts (2)?\n";
+                    cin >> shiftInput;
+
+                    try {
+                        userMade.setShift(shiftInput);
+                        cont = true;
+                    } catch (const ProductionWorker::InvalidShift& e) {
+                        cerr << "Error: " << e.what() << endl;
+                    }
                 } while (cont == false);
                 cont = false;
+
+                // Pay per hour input (with validation)
+                do {
+                    cout << "How much do they earn per hour of work?\n$";
+                    cin >> hourlyPayInput;
+
+                    try {
+                        userMade.setWage(hourlyPayInput);
+                        cont = true;
+                    } catch (const ProductionWorker::InvalidPayRate& e) {
+                        cerr << "Error: " << e.what() << endl;
+                    }
+                } while (cont == false);
+                cont = false;
+
+                userMade.printProductionWorker();
+
+                break;
             }
         }
     } while (cont == true);
