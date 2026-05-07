@@ -22,7 +22,7 @@ int main()
     int dayInput;
     int yearInput;
     int shiftInput;
-    float hourlyPayInput;
+    float payInput;
 
     // Main client loop which allows multiple objects to be created during the same session of runtime.
     do {
@@ -119,10 +119,10 @@ int main()
                 // Pay per hour input (with validation)
                 do {
                     cout << "How much do they earn per hour of work?\n$";
-                    cin >> hourlyPayInput;
+                    cin >> payInput;
 
                     try {
-                        userMade.setWage(hourlyPayInput);
+                        userMade.setWage(payInput);
                         cont = true;
                     } catch (const ProductionWorker::InvalidPayRate& e) {
                         cerr << "Error: " << e.what() << endl;
@@ -134,7 +134,58 @@ int main()
 
                 break;
             }
+
+        case 3:
+            {
+                ShiftSupervisor userMade("", 0, 0, 0, 0, 0.0, 0.0);
+
+                cout << "What will you make the Shift Supervisor's name?\n";
+                cin >> nameInput;
+                userMade.setName(nameInput);
+
+                // Employee Number input (with validation)
+                do {
+                    cout << "What Employee Number will they have? (0-9999)\n";
+                    cin >> numInput;
+
+                    try {
+                        userMade.setNumber(numInput);
+                        cont = true;
+                    } catch (const ShiftSupervisor::InvalidEmployeeNumber& e) {
+                        cerr << "Error: " << e.what() << endl;
+                    }
+                } while (cont == false);
+                cont = false;
+
+                cout << "What month were they hired on? (1-12)\n";
+                cin >> monthInput;
+                cout << "What day were they hired on? (1-31)\n";
+                cin >> dayInput;
+                cout << "What year were they hired on?\n";
+                cin >> yearInput;
+                userMade.setDateHired(monthInput, dayInput, yearInput); // Sets custom employee's date hired to user input.
+
+                cout << "What is the annual salary of the Shift Supervisor?\n$";
+                cin >> payInput;
+                userMade.setSalary(payInput);
+
+                cout << "What is the Shift Supervisor's production bonus?\n$";
+                cin >> payInput;
+                userMade.setBonus(payInput);
+
+                userMade.printShiftSupervisor();
+
+                break;
+            }
         }
+
+        cout << "Would you like to make a new employee? (Y/N)\n";
+        cin >> choice;
+        if (choice == 'Y' || choice == 'y')
+        {
+            cont = true;
+        }
+
     } while (cont == true);
 
     return 0;
