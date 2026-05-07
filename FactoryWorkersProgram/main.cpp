@@ -14,6 +14,7 @@ int main()
     int choice;
     bool isValid = false;
     bool cont = false;
+    char willContinue;
 
     // Variables for user input values
     string nameInput;
@@ -23,6 +24,7 @@ int main()
     int yearInput;
     int shiftInput;
     float payInput;
+    int hoursInput;
 
     // Main client loop which allows multiple objects to be created during the same session of runtime.
     do {
@@ -177,11 +179,91 @@ int main()
 
                 break;
             }
+
+        case 4:
+            {
+                TeamLeader userMade("", 0, 0, 0, 0, 1, 0.0, 0.0, 0, 0);
+
+                cout << "What will you make the Team Leader's name?\n";
+                cin >> nameInput;
+                userMade.setName(nameInput);
+
+                // Employee Number input (with validation)
+                do {
+                    cout << "What Employee Number will they have? (0-9999)\n";
+                    cin >> numInput;
+
+                    try {
+                        userMade.setNumber(numInput);
+                        cont = true;
+                    } catch (const TeamLeader::InvalidEmployeeNumber& e) {
+                        cerr << "Error: " << e.what() << endl;
+                    }
+                } while (cont == false);
+                cont = false;
+
+                cout << "What month were they hired on? (1-12)\n";
+                cin >> monthInput;
+                cout << "What day were they hired on? (1-31)\n";
+                cin >> dayInput;
+                cout << "What year were they hired on?\n";
+                cin >> yearInput;
+                userMade.setDateHired(monthInput, dayInput, yearInput); // Sets custom employee's date hired to user input.
+
+                // Shift input (with validation)
+                do {
+                    cout << "Do they work Day shifts (1) or Night shifts (2)?\n";
+                    cin >> shiftInput;
+
+                    try {
+                        userMade.setShift(shiftInput);
+                        cont = true;
+                    } catch (const TeamLeader::InvalidShift& e) {
+                        cerr << "Error: " << e.what() << endl;
+                    }
+                } while (cont == false);
+                cont = false;
+
+                // Pay per hour input (with validation)
+                do {
+                    cout << "How much do they earn per hour of work?\n$";
+                    cin >> payInput;
+
+                    try {
+                        userMade.setWage(payInput);
+                        cont = true;
+                    } catch (const TeamLeader::InvalidPayRate& e) {
+                        cerr << "Error: " << e.what() << endl;
+                    }
+                } while (cont == false);
+                cont = false;
+
+                cout << "What is the bonus value for this Team Leader?\n$";
+                cin >> payInput;
+                userMade.setBonus(payInput);
+
+                cout << "How many hours are required for this Team Leader's training?\n";
+                cin >> hoursInput;
+                userMade.setReqHrs(hoursInput);
+
+                cout << "How many hours has the Team Leader attended?\n";
+                cin >> hoursInput;
+                userMade.setAttHrs(hoursInput);
+
+                userMade.printTeamLeader();
+
+                break;
+            }
+
+        default:
+            {
+                cout << "You did not enter a real option.\n";
+            }
         }
 
         cout << "Would you like to make a new employee? (Y/N)\n";
-        cin >> choice;
-        if (choice == 'Y' || choice == 'y')
+        cin >> willContinue;
+        if (willContinue == 'Y' || willContinue == 'y')
         {
             cont = true;
         }
