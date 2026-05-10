@@ -21,12 +21,13 @@
 	"NumberArray.h"
 	<iostream>
 
-1778370718 source:/home/paulmichaelolsen/VPCC Assignnments/CSC 222/M6 Programming Project/NumberArrayProgram/main.cpp
+1778381261 source:/home/paulmichaelolsen/VPCC Assignnments/CSC 222/M6 Programming Project/NumberArrayProgram/main.cpp
 	<iostream>
 	<random>
 	"NumberArray.h"
 
-1778373792 /home/paulmichaelolsen/VPCC Assignnments/CSC 222/M6 Programming Project/NumberArrayProgram/NumberArray.h
+1778381673 /home/paulmichaelolsen/VPCC Assignnments/CSC 222/M6 Programming Project/NumberArrayProgram/NumberArray.h
+	<exception>
 
 1774992409 source:/home/paulmichaelolsen/VPCC Assignnments/CSC 222/M6 Programming Project/NumberArrayProgram/NumberArray.cpp
 	"NumberArray.h"

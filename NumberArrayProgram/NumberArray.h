@@ -4,6 +4,8 @@ It is a template class, having definitions and implementation grouped together i
 #ifndef DATE_H
 #define DATE_H
 
+#include <exception>
+
 const int DEFAULT_SIZE = 10; // Default size of NumberArray array
 
 template <typename T>
@@ -100,16 +102,27 @@ public:
     // Changes the value at the index, i, of the parameters,to the value of type T, val (value). No return.
     void setNumber(int i, T val)
     {
-        if (i < NumberArray::size && i >= 0)
+        if (i < this->size && i >= 0)
         {
             NumberArray::data[i] = val;
+        }
+        else
+        {
+            throw std::out_of_range("Index outside range of array.");
         }
     }
 
     // Accesses the number in NumberArray at a given index specified in the parameters, int index. Return is the value.
     inline T getNumber(int index)
     {
-        return data[index];
+        if (index < this->size && index >= 0)
+        {
+            return data[index];
+        }
+        else
+        {
+            throw std::out_of_range("Index outside range of array.");
+        }
     }
 
     // Searches through the NumberArray object to find the lowest value, returning that value in type T. No parameters.
