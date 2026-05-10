@@ -46,15 +46,15 @@ public:
         Preconditions: Nothing of particular importance; the class makes sure no objects have uninitialized data.
         Postconditions: A new NumberArray object is created with identical data to the one in the parameters. The object copied from will not be changed due to its constant nature, ensuring no accidental changes.
     */
-    NumberArray(const NumberArray& other)
+    NumberArray(const NumberArray<T>& other)
     {
-        NumberArray::size = other.size; // Syncs sizes
+        this->size = other.size; // Syncs sizes
 
-        NumberArray::data = new T[size];
+        this->data = new T[size];
 
         for (int i = 0; i < NumberArray::size; i++) // Loops through all the elements to copy data from other to the new object
         {
-            NumberArray::data[i] = other.data[i];
+            this->data[i] = other.data[i];
         }
     }
 
@@ -102,21 +102,14 @@ public:
     {
         if (i < NumberArray::size && i >= 0)
         {
-            NumberArray::data[i] = val; // Only sets the value if index is valid, avoiding undefined behavior
+            NumberArray::data[i] = val;
         }
     }
 
-    // Accesses the number in NumberArray at a given index specified in the parameters, int index. If it cannot access a value in valid range, it returns 0. Return is the value.
+    // Accesses the number in NumberArray at a given index specified in the parameters, int index. Return is the value.
     inline T getNumber(int index)
     {
-        if (index < size && index >= 0) // Index validation
-        {
-            return data[index];
-        }
-        else
-        {
-            return 0;
-        }
+        return data[index];
     }
 
     // Searches through the NumberArray object to find the lowest value, returning that value in type T. No parameters.
