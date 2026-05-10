@@ -84,16 +84,16 @@ public:
         }
 
         // De-allocate memory of this object
-        delete[] data;
+        delete[] this->data;
 
         // Allocate new memory (size could vary, after all)
-        size = right.size;
-        data = new T[size];
+        this->size = right.size;
+        this->data = new T[size];
 
         // Copy over the data from the right side of assignment into this object
         for (int i = 0; i < size; i++)
         {
-            data[i] = right.data[i];
+            this->data[i] = right.data[i];
         }
 
         return *this;
